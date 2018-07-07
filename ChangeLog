@@ -1,0 +1,139 @@
+libmodule-versions-report-perl (1.06-2) unstable; urgency=medium
+
+  [ gregor herrmann ]
+  * debian/control: Changed: Switched Vcs-Browser field to ViewSVN
+    (source stanza).
+  * debian/control: Added: ${misc:Depends} to Depends: field.
+
+  [ Nathan Handler ]
+  * debian/watch: Update to ignore development releases.
+
+  [ Salvatore Bonaccorso ]
+  * debian/control: Changed: Replace versioned (build-)dependency on
+    perl (>= 5.6.0-{12,16}) with an unversioned dependency on perl (as
+    permitted by Debian Policy 3.8.3).
+
+  [ Ansgar Burchardt ]
+  * Update my email address.
+  * debian/control: Convert Vcs-* fields to Git.
+
+  [ Salvatore Bonaccorso ]
+  * Change Vcs-Git to canonical URI (git://anonscm.debian.org)
+  * Change search.cpan.org based URIs to metacpan.org based URIs
+
+  [ Axel Beckert ]
+  * debian/copyright: migrate pre-1.0 format to 1.0 using "cme fix dpkg-
+    copyright"
+
+  [ gregor herrmann ]
+  * Strip trailing slash from metacpan URLs.
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-Browser URL to cgit web frontend
+  * debian/control: Use HTTPS transport protocol for Vcs-Git URI
+
+  [ gregor herrmann ]
+  * debian/copyright: change Copyright-Format 1.0 URL to HTTPS.
+
+  [ Niko Tyni ]
+  * Update to dpkg source format 3.0 (quilt)
+  * Update to debhelper compat level 10 and tiny debian/rules
+  * Update to Standards-Version 4.1.3
+  * Make the package autopkgtestable
+  * Update my email address in Uploaders
+  * Fix DEP-5 debian/copyright syntax
+
+ -- Niko Tyni <ntyni@debian.org>  Mon, 15 Jan 2018 21:06:05 +0200
+
+libmodule-versions-report-perl (1.06-1) unstable; urgency=low
+
+  [ Ansgar Burchardt ]
+  * New upstream release.
+  * Add myself to Uploaders.
+  * Convert debian/copyright to proposed machine-readable format.
+    Copyright holders for debian/* are taken from the changelog.
+
+  [ gregor herrmann ]
+  * debian/rules: use the group's default template.
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Sat, 25 Oct 2008 18:35:53 +0200
+
+libmodule-versions-report-perl (1.05-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/watch: extended regexp for matching upstream releases.
+  * Set Standards-Version to 3.8.0 (no changes).
+  * Add /me to Uploaders.
+  * Use ${perl:Depends} in Depends instead of hard-coding the perl version.
+  * debian/copyright: use author-independent upstream source location.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 14 Jun 2008 22:53:36 +0200
+
+libmodule-versions-report-perl (1.04-1) unstable; urgency=low
+
+  * New upstream release
+  * debhelper 7
+    + debian/rules replaced with a three-liner
+    + Build-Depends: debhelper (>=7)
+    + compatibility level 7
+  * do not ship README that is the same as the POD
+  * add myself to Uploaders
+
+ -- Damyan Ivanov <dmn@debian.org>  Sat, 07 Jun 2008 22:16:11 +0300
+
+libmodule-versions-report-perl (1.03-2) unstable; urgency=low
+
+  [ gregor herrmann ]
+  * debian/control: Added: Vcs-Svn field (source stanza); Vcs-Browser
+    field (source stanza); Homepage field (source stanza). Removed: XS-
+    Vcs-Svn fields.
+  * debian/rules: delete /usr/lib/perl5 only if it exists.
+
+  [ Jose Luis Rivas ]
+  * Typo fixed by René Mayorga (Closes: #439275)
+  * debian/rules: `touch $@' instead of `touch *-stamp'
+  * debian/copyright: fixed formatting
+  * debian/watch: now is dist-based.
+
+  [ Roberto C. Sanchez ]
+  * Update to debhelper compatibility level 6.
+  * Update to Standards-Version 3.7.3 (no changes).
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Wed, 09 Jan 2008 23:45:09 -0500
+
+libmodule-versions-report-perl (1.03-1) unstable; urgency=low
+
+  * New upstream release.
+  * Update watch file.
+
+ -- Niko Tyni <ntyni@iki.fi>  Tue, 22 May 2007 23:15:04 +0300
+
+libmodule-versions-report-perl (1.02-4) unstable; urgency=low
+
+  * New maintainer.
+  * Upgrade to debhelper compatibility level 5.
+  * Update debian/copyright.
+
+ -- Niko Tyni <ntyni@iki.fi>  Tue,  5 Dec 2006 00:23:37 +0200
+
+libmodule-versions-report-perl (1.02-3) unstable; urgency=low
+
+  * debian/control:
+      - Switched to my debian.org email address
+      - Moved debhelper to Build-Depends
+
+ -- Stephen Quinney <sjq@debian.org>  Mon, 16 Oct 2006 18:27:37 +0100
+
+libmodule-versions-report-perl (1.02-2) unstable; urgency=low
+
+  * debian/watch - Updated URL so lookups no longer randomly fail.
+
+ -- Stephen Quinney <sjq@debian.org>  Sat, 11 Jun 2005 12:04:03 +0100
+
+libmodule-versions-report-perl (1.02-1) unstable; urgency=low
+
+  *  Inital release, closes: #256647.
+
+ -- Stephen Quinney <sjq@debian.org>  Fri,  2 Jul 2004 13:24:34 +0100
+
+
