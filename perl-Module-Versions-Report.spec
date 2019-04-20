@@ -4,7 +4,7 @@
 #
 Name     : perl-Module-Versions-Report
 Version  : 1.06
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Module-Versions-Report-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Module-Versions-Report-1.06.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmodule-versions-report-perl/libmodule-versions-report-perl_1.06-2.debian.tar.xz
@@ -22,6 +22,7 @@ Module::Versions::Report -- report versions of all modules in memory
 Summary: dev components for the perl-Module-Versions-Report package.
 Group: Development
 Provides: perl-Module-Versions-Report-devel = %{version}-%{release}
+Requires: perl-Module-Versions-Report = %{version}-%{release}
 
 %description dev
 dev components for the perl-Module-Versions-Report package.
@@ -32,7 +33,7 @@ dev components for the perl-Module-Versions-Report package.
 cd ..
 %setup -q -T -D -n Module-Versions-Report-1.06 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Module-Versions-Report-1.06/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Module-Versions-Report-1.06/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
