@@ -4,13 +4,15 @@
 #
 Name     : perl-Module-Versions-Report
 Version  : 1.06
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Module-Versions-Report-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Module-Versions-Report-1.06.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmodule-versions-report-perl/libmodule-versions-report-perl_1.06-2.debian.tar.xz
 Summary  : report versions of all modules in memory
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0 GPL-2.0
+Requires: perl-Module-Versions-Report-license = %{version}-%{release}
+Requires: perl-Module-Versions-Report-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -28,18 +30,36 @@ Requires: perl-Module-Versions-Report = %{version}-%{release}
 dev components for the perl-Module-Versions-Report package.
 
 
+%package license
+Summary: license components for the perl-Module-Versions-Report package.
+Group: Default
+
+%description license
+license components for the perl-Module-Versions-Report package.
+
+
+%package perl
+Summary: perl components for the perl-Module-Versions-Report package.
+Group: Default
+Requires: perl-Module-Versions-Report = %{version}-%{release}
+
+%description perl
+perl components for the perl-Module-Versions-Report package.
+
+
 %prep
 %setup -q -n Module-Versions-Report-1.06
-cd ..
-%setup -q -T -D -n Module-Versions-Report-1.06 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libmodule-versions-report-perl_1.06-2.debian.tar.xz
+cd %{_builddir}/Module-Versions-Report-1.06
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Module-Versions-Report-1.06/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/Module-Versions-Report-1.06/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -49,7 +69,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -57,6 +77,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Module-Versions-Report
+cp %{_builddir}/Module-Versions-Report-1.06/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Module-Versions-Report/652c77408d6c7c83eb465ec060028e4b46d12f9e
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -69,8 +91,15 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Module/Versions/Report.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Module::Versions::Report.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Module-Versions-Report/652c77408d6c7c83eb465ec060028e4b46d12f9e
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Module/Versions/Report.pm
