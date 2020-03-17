@@ -4,7 +4,7 @@
 #
 Name     : perl-Module-Versions-Report
 Version  : 1.06
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Module-Versions-Report-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Module-Versions-Report-1.06.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmodule-versions-report-perl/libmodule-versions-report-perl_1.06-2.debian.tar.xz
@@ -78,7 +78,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Module-Versions-Report
-cp %{_builddir}/Module-Versions-Report-1.06/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Module-Versions-Report/652c77408d6c7c83eb465ec060028e4b46d12f9e
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Module-Versions-Report/652c77408d6c7c83eb465ec060028e4b46d12f9e
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -102,4 +102,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Module/Versions/Report.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Module/Versions/Report.pm
