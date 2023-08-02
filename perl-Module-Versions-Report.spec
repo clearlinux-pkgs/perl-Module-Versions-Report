@@ -4,7 +4,7 @@
 #
 Name     : perl-Module-Versions-Report
 Version  : 1.06
-Release  : 21
+Release  : 22
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Module-Versions-Report-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Module-Versions-Report-1.06.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmodule-versions-report-perl/libmodule-versions-report-perl_1.06-2.debian.tar.xz
